@@ -10,6 +10,8 @@ header{border-bottom:2px solid var(--g);padding:16px;display:flex;gap:14px;align
 .card{font-size:22px;line-height:1.4;padding:20px;border:2px solid var(--g);border-radius:12px;min-height:130px}.n{color:var(--g);font-size:14px}
 ul{list-style:none;padding:0;margin:0}li{padding:10px 4px;border-bottom:1px solid #2a2a2a;display:flex;gap:10px}li.d span{text-decoration:line-through;color:#666}input{accent-color:var(--g);width:20px;height:20px;flex:none}
 .note{padding:10px;border-left:3px solid var(--g);margin-bottom:10px;background:#1c1a12}.prog{color:#bbb;margin:8px 0}
+.myday{margin:0 16px 16px;border:2px solid var(--g);border-radius:12px;padding:14px 16px;background:var(--c)}.myday h3{color:var(--g);margin:0 0 8px;letter-spacing:1px;display:flex;justify-content:space-between;align-items:center}.myday h3 a{font-size:13px;color:var(--g)}
+.ev{display:flex;gap:14px;padding:8px 10px;border-left:3px solid #444;margin:4px 0}.ev b{color:var(--g);min-width:150px}.ev.past{opacity:.45}.ev.next{border-left-color:var(--g);background:#1c1a12}.ev.next b:after{content:" · NEXT UP";font-size:12px}
 </style></head><body>
 <script>
 /* ===== EDIT DAILY: date, tasks, notifications ===== */
@@ -28,6 +30,14 @@ const TASKS=[
 "Dial Facebook and mailer leads in EZ PZ.",
 "Experian: review the credit report with George, and apply to Navy Federal first."
 ];
+/* MY DAY: [start "HH:MM" 24h, end, title] — America/Denver, from Google Calendar */
+const CAL_DATE="2026-10-28";
+const CALENDAR=[
+["08:30","08:40","PNCL morning production kickoff"],
+["09:00","09:15","Issue Paid Huddle (with Mandy)"],
+["10:01","10:31","Rita Bingham Smiley - Insurance consultation"],
+["13:30","14:30","Policy follow-up"]
+];
 const NOTES=[
 "Rita Bingham Smiley appointment: Wed 10/28, 10:01 AM",
 "Calendar nearly empty 10/28 to 11/3 (only 2 new appointments)",
@@ -41,12 +51,17 @@ const LINKS=[["Foresters","https://www.foresters.com/"],["Mutual of Omaha (SPA)"
 <header><div class="logo">🦁</div><div><h1>PRODIGY LIFE, LLC</h1><div class="sub">Justin Virgin · Agency Owner / Producer · <a href="tel:8014723455">801-472-3455</a> · <a href="mailto:jv@thepncl.com">jv@thepncl.com</a> · NPN 22089462</div></div></header>
 <nav class="links" id="links"></nav>
 <section class="day"><h2 id="day"></h2><div class="tog"><button id="bf" class="on">Focus</button><button id="ba">All tasks</button></div><div class="prog" id="prog"></div></section>
+<section class="myday"><h3>MY DAY <a href="https://calendar.google.com/calendar/u/0/r/day/2026/10/28" target="_blank" rel="noopener">Open Google Calendar ↗</a></h3><div id="cal"></div></section>
 <main class="grid"><section class="box"><h3>TO DO</h3><div id="todo"></div></section><aside class="box"><h3>IMPORTANT NOTIFICATIONS</h3><div id="notes"></div></aside></main>
 <script>
 let done=JSON.parse(localStorage.getItem(KEY)||"[]"),mode="f",i=0;const $=id=>document.getElementById(id);
 const save=()=>localStorage.setItem(KEY,JSON.stringify(done));
 $("day").textContent=DAY;$("links").innerHTML=LINKS.map(l=>`<a href="${l[1]}" target="_blank" rel="noopener">${l[0]}</a>`).join("");
 $("notes").innerHTML=NOTES.map(n=>`<div class="note">${n}</div>`).join("");
+(function(){const f=t=>{let[h,m]=t.split(":").map(Number);return((h+11)%12+1)+":"+String(m).padStart(2,"0")+(h<12?" AM":" PM")};
+const now=new Date(),today=now.toLocaleDateString("en-CA",{timeZone:"America/Denver"}),hm=now.toLocaleTimeString("en-GB",{timeZone:"America/Denver",hour:"2-digit",minute:"2-digit"});
+let nx=CALENDAR.findIndex(e=>today<CAL_DATE||(today==CAL_DATE&&e[1]>hm));
+$("cal").innerHTML=CALENDAR.length?CALENDAR.map((e,k)=>`<div class="ev ${k==nx?'next':(today>CAL_DATE||(today==CAL_DATE&&e[1]<=hm))?'past':''}"><b>${f(e[0])} – ${f(e[1])}</b><span>${e[2]}</span></div>`).join(""):"<div class='ev'>No appointments</div>"})();
 function nextOpen(f){for(let k=f;k<TASKS.length;k++)if(!done.includes(k))return k;return -1}
 function render(){$("prog").textContent=`${done.length} of ${TASKS.length} done`;$("bf").className=mode=="f"?"on":"";$("ba").className=mode=="a"?"on":"";
 if(mode=="f"){if(i<0||i>=TASKS.length||done.includes(i))i=nextOpen(0);
