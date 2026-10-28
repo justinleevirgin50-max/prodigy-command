@@ -1,17 +1,23 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><link rel="icon" type="image/png" href="logo.png"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex"><title>Prodigy Command</title><style>
-:root{--g:#D4AF37;--bg:#0a0a0a;--c:#151515;--t:#eee}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--t);font-family:system-ui,sans-serif}
-header{border-bottom:2px solid var(--g);padding:16px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
-.logo{height:56px;width:auto;display:block}h1{margin:0;color:var(--g);font-size:22px}.sub{font-size:13px;color:#bbb}.sub a{color:var(--g)}
-.links{display:flex;flex-wrap:wrap;gap:8px;padding:12px 16px;border-bottom:1px solid #333}.links a{color:#000;background:var(--g);padding:7px 12px;border-radius:20px;text-decoration:none;font-weight:600;font-size:14px}
-.day{padding:16px;text-align:center}.day h2{color:var(--g);margin:0 0 10px}.tog button,.ctl button{background:none;border:1px solid var(--g);color:var(--g);padding:8px 16px;border-radius:8px;font-size:15px;margin:3px;cursor:pointer}.tog button.on,.ctl button.p{background:var(--g);color:#000}
-.grid{display:grid;grid-template-columns:2fr 1fr;gap:16px;padding:0 16px 30px}@media(max-width:760px){.grid{grid-template-columns:1fr}}
-.box{background:var(--c);border:1px solid #333;border-radius:12px;padding:16px}.box h3{color:var(--g);margin-top:0;letter-spacing:1px}
-.card{font-size:22px;line-height:1.4;padding:20px;border:2px solid var(--g);border-radius:12px;min-height:130px}.n{color:var(--g);font-size:14px}
-ul{list-style:none;padding:0;margin:0}li{padding:10px 4px;border-bottom:1px solid #2a2a2a;display:flex;gap:10px}li.d span{text-decoration:line-through;color:#666}input{accent-color:var(--g);width:20px;height:20px;flex:none}
-.note{padding:10px;border-left:3px solid var(--g);margin-bottom:10px;background:#1c1a12}.prog{color:#bbb;margin:8px 0}
-.myday{margin:0 16px 16px;border:2px solid var(--g);border-radius:12px;padding:14px 16px;background:var(--c)}.myday h3{color:var(--g);margin:0 0 8px;letter-spacing:1px;display:flex;justify-content:space-between;align-items:center}.myday h3 a{font-size:13px;color:var(--g)}
-.ev{display:flex;gap:14px;padding:8px 10px;border-left:3px solid #444;margin:4px 0}.ev b{color:var(--g);min-width:150px}.ev.past{opacity:.45}.ev.next{border-left-color:var(--g);background:#1c1a12}.ev.next b:after{content:" · NEXT UP";font-size:12px}
+:root{--a:#D4AF37;--bg:#0d0f12;--c:#171a1f;--l:#262a31;--t:#eef0f3;--m:#8b919b}*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--t);font:17px/1.5 system-ui,-apple-system,sans-serif;padding-bottom:40px}
+.wrap{max-width:640px;margin:0 auto;padding:16px}
+header{display:flex;align-items:center;gap:12px;margin-bottom:18px}header img{height:40px}header h1{font-size:18px;margin:0;color:var(--a)}header .d{color:var(--m);font-size:14px}
+.pg{display:flex;justify-content:space-between;color:var(--m);font-size:14px;margin-bottom:6px}.bar{height:8px;background:var(--l);border-radius:8px;overflow:hidden;margin-bottom:18px}.bar i{display:block;height:100%;background:var(--a);transition:width .3s}
+.card{background:var(--c);border:1px solid var(--l);border-left:4px solid var(--a);border-radius:18px;padding:28px 22px;font-size:23px;line-height:1.45;min-height:180px}.card .n{font-size:13px;color:var(--a);letter-spacing:1px;margin-bottom:10px}
+.done{display:block;width:100%;margin:16px 0 8px;padding:20px;font-size:21px;font-weight:700;border:0;border-radius:16px;background:var(--a);color:#000;cursor:pointer}
+.row{display:flex;gap:10px}.row button,.btn2{flex:1;padding:14px;border-radius:12px;border:1px solid var(--l);background:var(--c);color:var(--t);font-size:16px;cursor:pointer}
+details{background:var(--c);border:1px solid var(--l);border-radius:14px;margin-top:14px}summary{padding:16px;cursor:pointer;font-weight:600;color:var(--a);list-style:none}summary::-webkit-details-marker{display:none}summary:after{content:"▾";float:right}details[open] summary:after{content:"▴"}
+.in{padding:0 16px 16px}.up{padding:10px 0;border-top:1px solid var(--l);color:#cfd3d9}.up b{color:var(--m);margin-right:6px}
+ul{list-style:none;margin:0;padding:0}li{display:flex;gap:12px;padding:12px 0;border-top:1px solid var(--l)}li.x span{text-decoration:line-through;color:var(--m)}input[type=checkbox]{width:24px;height:24px;accent-color:var(--a);flex:none}
+.ev{display:flex;gap:12px;padding:10px 0;border-top:1px solid var(--l)}.ev b{min-width:140px;color:var(--m);font-weight:500}.ev.past{opacity:.4}.ev.next b{color:var(--a)}
+.links{display:grid;grid-template-columns:1fr 1fr;gap:10px}.links a{display:block;padding:14px;text-align:center;border-radius:12px;background:var(--l);color:var(--t);text-decoration:none;font-size:15px}
+.note{padding:10px 0;border-top:1px solid var(--l);color:#cfd3d9}
+textarea{width:100%;min-height:90px;background:var(--bg);color:var(--t);border:1px solid var(--l);border-radius:12px;padding:12px;font:inherit}
+.go{display:block;text-align:center;margin-top:10px;padding:16px;border-radius:14px;background:var(--a);color:#000;font-weight:700;text-decoration:none;font-size:18px}
+.hint{color:var(--m);font-size:14px;margin-top:8px}.ok{color:var(--a);font-size:14px;min-height:20px}
+.foot{color:var(--m);font-size:13px;text-align:center;margin-top:20px}.foot a{color:var(--m)}
 </style></head><body>
 <script>
 /* ===== EDIT DAILY: date, tasks, notifications ===== */
@@ -47,13 +53,26 @@ const NOTES=[
 const LINKS=[["Foresters","https://www.foresters.com/"],["Mutual of Omaha (SPA)","https://producer.mutualofomaha.com/"],["Transamerica","https://secure.transamerica.com"],["Ethos","https://agents.ethoslife.com/"],["Kansas City Life","https://www.kclife.com/"],["Lead Supply","https://app.gohighlevel.com"],["Google Calendar","https://calendar.google.com"]];
 /* ===== end edit block ===== */
 </script>
-<header><img class="logo" src="logo.png" alt="Prodigy Life"><div><h1>PRODIGY LIFE, LLC</h1><div class="sub">Justin Virgin · Agency Owner / Producer · <a href="tel:8014723455">801-472-3455</a> · <a href="mailto:jv@thepncl.com">jv@thepncl.com</a> · NPN 22089462</div></div></header>
-<nav class="links" id="links"></nav>
-<section class="day"><h2 id="day"></h2><div class="tog"><button id="bf" class="on">Focus</button><button id="ba">All tasks</button></div><div class="prog" id="prog"></div></section>
-<section class="myday"><h3>MY DAY <a href="https://calendar.google.com/calendar/u/0/r/day/2026/10/28" target="_blank" rel="noopener">Open Google Calendar ↗</a></h3><div id="cal"></div></section>
-<main class="grid"><section class="box"><h3>TO DO</h3><div id="todo"></div></section><aside class="box"><h3>IMPORTANT NOTIFICATIONS</h3><div id="notes"></div></aside></main>
+<div class="wrap">
+<header><img src="logo.png" alt="Prodigy Life"><div><h1>Prodigy Command</h1><div class="d" id="day"></div></div></header>
+<div class="pg"><span id="cnt"></span><span id="pct"></span></div><div class="bar"><i id="fill"></i></div>
+<div id="focus"></div>
+<details id="nextd" open><summary>Up next</summary><div class="in" id="next"></div></details>
+<details><summary>All tasks</summary><div class="in" id="all"></div></details>
+<details><summary>My day</summary><div class="in"><div id="cal"></div><a class="go" style="background:var(--l);color:var(--t)" href="https://calendar.google.com/calendar/u/0/r/day/2026/10/28" target="_blank" rel="noopener">Open Google Calendar ↗</a></div></details>
+<details><summary>Notes</summary><div class="in" id="notes"></div></details>
+<details><summary>Quick links</summary><div class="in"><div class="links" id="links"></div></div></details>
+<details id="talk"><summary>Talk to George</summary><div class="in">
+<div class="hint" style="margin-top:0">This page can't chat live. It copies your note, then opens George in the Grok Bot app so you can paste and send.</div>
+<textarea id="gmsg" placeholder="Type your update or question..."></textarea>
+<a class="go" id="golink" href="grokbot://app/v1/agent?id=37a6cabc-44f2-4cb4-814f-91f175e80d5d">Copy &amp; open George</a>
+<div class="ok" id="gok"></div>
+<div class="hint">If it didn't open, open the Grok Bot app → George, and paste.</div>
+</div></details>
+<div class="foot">Justin Virgin · <a href="tel:8014723455">801-472-3455</a> · <a href="mailto:jv@thepncl.com">jv@thepncl.com</a> · NPN 22089462</div>
+</div>
 <script>
-let done=JSON.parse(localStorage.getItem(KEY)||"[]"),mode="f",i=0;const $=id=>document.getElementById(id);
+let done=JSON.parse(localStorage.getItem(KEY)||"[]"),i=0;const $=id=>document.getElementById(id);
 const save=()=>localStorage.setItem(KEY,JSON.stringify(done));
 $("day").textContent=DAY;$("links").innerHTML=LINKS.map(l=>`<a href="${l[1]}" target="_blank" rel="noopener">${l[0]}</a>`).join("");
 $("notes").innerHTML=NOTES.map(n=>`<div class="note">${n}</div>`).join("");
@@ -62,20 +81,22 @@ const now=new Date(),today=now.toLocaleDateString("en-CA",{timeZone:"America/Den
 let nx=CALENDAR.findIndex(e=>today<CAL_DATE||(today==CAL_DATE&&e[1]>hm));
 $("cal").innerHTML=CALENDAR.length?CALENDAR.map((e,k)=>`<div class="ev ${k==nx?'next':(today>CAL_DATE||(today==CAL_DATE&&e[1]<=hm))?'past':''}"><b>${f(e[0])} – ${f(e[1])}</b><span>${e[2]}</span></div>`).join(""):"<div class='ev'>No appointments</div>"})();
 function nextOpen(f){for(let k=f;k<TASKS.length;k++)if(!done.includes(k))return k;return -1}
-function render(){$("prog").textContent=`${done.length} of ${TASKS.length} done`;$("bf").className=mode=="f"?"on":"";$("ba").className=mode=="a"?"on":"";
-if(mode=="f"){if(i<0||i>=TASKS.length||done.includes(i))i=nextOpen(0);
-$("todo").innerHTML=i<0?`<div class="card">🏆 All done. Great work.</div><div class="ctl"><button onclick="done=[];save();i=0;render()">Start over</button></div>`:
-`<div class="card"><div class="n">Task ${i+1} of ${TASKS.length}</div>${TASKS[i]}</div><div class="ctl"><button onclick="back()">Back</button><button class="p" onclick="markDone()">Done ✓</button><button onclick="skip()">Next</button></div>`}
-else $("todo").innerHTML="<ul>"+TASKS.map((t,k)=>`<li class="${done.includes(k)?'d':''}"><input type="checkbox" ${done.includes(k)?'checked':''} onchange="tog(${k})"><span>${k+1}. ${t}</span></li>`).join("")+"</ul>"}
+function render(){const n=done.length,T=TASKS.length;
+if(i<0||i>=T||done.includes(i))i=nextOpen(0);
+$("cnt").textContent=i<0?`${n} of ${T} done`:`Task ${i+1} of ${T}`;$("pct").textContent=`${n} done`;$("fill").style.width=(T?n/T*100:0)+"%";
+$("focus").innerHTML=i<0?`<div class="card">🏆 All done. Great work.</div><button class="done" onclick="done=[];save();i=0;render()">Start over</button>`:
+`<div class="card"><div class="n">NOW</div>${TASKS[i]}</div><button class="done" onclick="markDone()">Done ✓</button><div class="row"><button onclick="back()">‹ Back</button><button onclick="skip()">Skip ›</button></div>`;
+let up=[];for(let k=i+1;k<T&&up.length<3&&i>=0;k++)if(!done.includes(k))up.push(k);
+$("next").innerHTML=up.length?up.map(k=>`<div class="up"><b>${k+1}.</b>${TASKS[k]}</div>`).join(""):`<div class="up">Nothing after this one.</div>`;
+$("all").innerHTML="<ul>"+TASKS.map((t,k)=>`<li class="${done.includes(k)?'x':''}"><input type="checkbox" ${done.includes(k)?'checked':''} onchange="tog(${k})"><span>${k+1}. ${t}</span></li>`).join("")+"</ul>"}
 function markDone(){if(!done.includes(i))done.push(i);save();i=nextOpen(i);if(i<0)i=nextOpen(0);render()}
 function skip(){let k=nextOpen(i+1);i=k<0?nextOpen(0):k;render()}
 function back(){for(let k=i-1;k>=0;k--)if(!done.includes(k)){i=k;break}render()}
 function tog(k){done=done.includes(k)?done.filter(x=>x!=k):[...done,k];save();render()}
-$("bf").onclick=()=>{mode="f";render()};$("ba").onclick=()=>{mode="a";render()};render();
-</script><div id="talk" style="max-width:1200px;margin:16px auto;padding:16px;border:1px solid #D4AF37;border-radius:14px;background:#141414">
-<div style="color:#D4AF37;font-weight:700;letter-spacing:1px;margin-bottom:8px">TALK TO GEORGE</div>
-<textarea id="gmsg" placeholder="Type your update or question..." style="width:100%;min-height:70px;background:#0b0b0b;color:#fff;border:1px solid #555;border-radius:10px;padding:10px;font:inherit"></textarea>
-<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
-<button onclick="(async()=>{const t=document.getElementById('gmsg').value;try{await navigator.clipboard.writeText(t)}catch(e){};location.href='grokbot://app/v1/agent?id=37a6cabc-44f2-4cb4-814f-91f175e80d5d'})()" style="background:#D4AF37;color:#000;border:0;border-radius:10px;padding:8px 14px;font-weight:700">Copy &amp; open George</button>
-</div><div style="color:#999;font-size:12px;margin-top:6px">Copies your note and opens George's chat. Paste it there and hit send.</div></div>
+/* Talk to George: copy synchronously inside the tap, let the real <a href> navigate (no preventDefault) */
+function copySync(t){let ok=false;const ta=document.createElement("textarea");ta.value=t;ta.setAttribute("readonly","");ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();ta.setSelectionRange(0,t.length);try{ok=document.execCommand("copy")}catch(e){}document.body.removeChild(ta);
+if(!ok&&navigator.clipboard){try{navigator.clipboard.writeText(t).catch(()=>{})}catch(e){}ok=true}return ok}
+$("golink").addEventListener("click",()=>{const t=$("gmsg").value;if(t){$("gok").textContent=copySync(t)?"Copied ✓ Opening George…":"Couldn't copy. Select your note and copy it by hand."}else $("gok").textContent="Opening George…"});
+render();
+</script>
 </body></html>
