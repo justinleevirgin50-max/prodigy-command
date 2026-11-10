@@ -17,6 +17,7 @@ ul{list-style:none;margin:0;padding:0}li{display:flex;gap:12px;padding:12px 0;bo
 textarea{width:100%;min-height:90px;background:var(--bg);color:var(--t);border:1px solid var(--l);border-radius:12px;padding:12px;font:inherit}
 .go{display:block;text-align:center;margin-top:10px;padding:16px;border-radius:14px;background:var(--a);color:#000;font-weight:700;text-decoration:none;font-size:18px}
 .hint{color:var(--m);font-size:14px;margin-top:8px}.ok{color:var(--a);font-size:14px;min-height:20px}
+.mb{text-align:center;text-decoration:none;display:block}.mt{color:var(--a);font-size:13px;font-weight:600}
 .foot{color:var(--m);font-size:13px;text-align:center;margin-top:20px}.foot a{color:var(--m)}
 </style></head><body>
 <script>
@@ -41,7 +42,7 @@ const TASKS=[
 /* MY DAY: [start "HH:MM" 24h, end, title] — America/Denver, from Google Calendar */
 const CAL_DATE="2026-11-10";
 const CALENDAR=[["06:30", "06:50", "Connect with God"], ["07:00", "08:00", "Workout"], ["08:30", "08:40", "PNCL morning production kickoff"], ["09:00", "09:15", "Issue Paid Huddle (with Mandy)"], ["10:00", "10:30", "Meet with Chesca"], ["12:00", "12:30", "Lynette Parra (Chesca set)"], ["13:30", "14:30", "Policy follow-up"], ["18:00", "18:30", "Kyna Glasco-Travelstead - Insurance consultation"]];
-const NOTES=["Full pending-policy game plan is in Apple Notes", "Check before Submit: draft day, banking, signatures, rider amounts, full med list", "Chesca Mon: 430 dials, 7 spoken, 4 appts"];
+const NOTES=["Full pending-policy game plan is in Apple Notes", "Check before Submit: draft day, banking, signatures, rider amounts, full med list"];
 const LINKS=[["Foresters","https://www.foresters.com/"],["Mutual of Omaha (SPA)","https://producer.mutualofomaha.com/"],["Transamerica","https://secure.transamerica.com"],["Ethos","https://agents.ethoslife.com/"],["Kansas City Life","https://www.kclife.com/"],["Lead Supply","https://app.gohighlevel.com"],["Google Calendar","https://calendar.google.com"]];
 /* ===== end edit block ===== */
 </script>
@@ -64,8 +65,10 @@ const LINKS=[["Foresters","https://www.foresters.com/"],["Mutual of Omaha (SPA)"
 <div class="foot">Justin Virgin · <a href="tel:8014723455">801-472-3455</a> · <a href="mailto:jv@thepncl.com">jv@thepncl.com</a> · NPN 22089462</div>
 </div>
 <script>
-let done=JSON.parse(localStorage.getItem(KEY)||"[]"),i=0;const $=id=>document.getElementById(id);
-const save=()=>localStorage.setItem(KEY,JSON.stringify(done));
+let done=JSON.parse(localStorage.getItem(KEY)||"[]"),i=0,mandy=JSON.parse(localStorage.getItem(KEY+"-m")||"[]");const $=id=>document.getElementById(id);
+const save=()=>{localStorage.setItem(KEY,JSON.stringify(done));localStorage.setItem(KEY+"-m",JSON.stringify(mandy))};
+const tag=k=>mandy.includes(k)?' <span class="mt">→ Mandy</span>':"";
+const smsHref=k=>"sms:&body="+encodeURIComponent("Hey Mandy, can you take this one for me? "+TASKS[k].replace(/<[^>]*>/g,"")+" Thanks!");
 $("day").textContent=DAY;$("links").innerHTML=LINKS.map(l=>`<a href="${l[1]}" target="_blank" rel="noopener">${l[0]}</a>`).join("");
 $("notes").innerHTML=NOTES.map(n=>`<div class="note">${n}</div>`).join("");
 (function(){const f=t=>{let[h,m]=t.split(":").map(Number);return((h+11)%12+1)+":"+String(m).padStart(2,"0")+(h<12?" AM":" PM")};
@@ -77,14 +80,15 @@ function render(){const n=done.length,T=TASKS.length;
 if(i<0||i>=T||done.includes(i))i=nextOpen(0);
 $("cnt").textContent=i<0?`${n} of ${T} done`:`Task ${i+1} of ${T}`;$("pct").textContent=`${n} done`;$("fill").style.width=(T?n/T*100:0)+"%";
 $("focus").innerHTML=i<0?`<div class="card">🏆 All done. Great work.</div><button class="done" onclick="done=[];save();i=0;render()">Start over</button>`:
-`<div class="card"><div class="n">NOW</div>${TASKS[i]}</div><button class="done" onclick="markDone()">Done ✓</button><div class="row"><button onclick="back()">‹ Back</button><button onclick="skip()">Skip ›</button></div>`;
+`<div class="card"><div class="n">NOW</div>${TASKS[i]}</div><button class="done" onclick="markDone()">Done ✓</button><div class="row"><button onclick="back()">‹ Back</button><a class="btn2 mb" href="${smsHref(i)}" onclick="toMandy(${i})">Assign to Mandy</a><button onclick="skip()">Skip ›</button></div>`;
 let up=[];for(let k=i+1;k<T&&up.length<3&&i>=0;k++)if(!done.includes(k))up.push(k);
 $("next").innerHTML=up.length?up.map(k=>`<div class="up"><b>${k+1}.</b>${TASKS[k]}</div>`).join(""):`<div class="up">Nothing after this one.</div>`;
-$("all").innerHTML="<ul>"+TASKS.map((t,k)=>`<li class="${done.includes(k)?'x':''}"><input type="checkbox" ${done.includes(k)?'checked':''} onchange="tog(${k})"><span>${k+1}. ${t}</span></li>`).join("")+"</ul>"}
+$("all").innerHTML="<ul>"+TASKS.map((t,k)=>`<li class="${done.includes(k)?'x':''}"><input type="checkbox" ${done.includes(k)?'checked':''} onchange="tog(${k})"><span>${k+1}. ${t}${tag(k)}</span></li>`).join("")+"</ul>"}
 function markDone(){if(!done.includes(i))done.push(i);save();i=nextOpen(i);if(i<0)i=nextOpen(0);render()}
 function skip(){let k=nextOpen(i+1);i=k<0?nextOpen(0):k;render()}
 function back(){for(let k=i-1;k>=0;k--)if(!done.includes(k)){i=k;break}render()}
-function tog(k){done=done.includes(k)?done.filter(x=>x!=k):[...done,k];save();render()}
+function toMandy(k){if(!mandy.includes(k))mandy.push(k);if(!done.includes(k))done.push(k);save();setTimeout(()=>{i=nextOpen(k);if(i<0)i=nextOpen(0);render()},300)}
+function tog(k){if(done.includes(k))mandy=mandy.filter(x=>x!=k);done=done.includes(k)?done.filter(x=>x!=k):[...done,k];save();render()}
 /* Talk to George: copy synchronously inside the tap, let the real <a href> navigate (no preventDefault) */
 function copySync(t){let ok=false;const ta=document.createElement("textarea");ta.value=t;ta.setAttribute("readonly","");ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();ta.setSelectionRange(0,t.length);try{ok=document.execCommand("copy")}catch(e){}document.body.removeChild(ta);
 if(!ok&&navigator.clipboard){try{navigator.clipboard.writeText(t).catch(()=>{})}catch(e){}ok=true}return ok}
