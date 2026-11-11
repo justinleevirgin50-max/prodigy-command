@@ -22,27 +22,28 @@ textarea{width:100%;min-height:90px;background:var(--bg);color:var(--t);border:1
 </style></head><body>
 <script>
 /* ===== EDIT DAILY: date, tasks, notifications ===== */
-const DAY="Tuesday, November 10, 2026", KEY="pc-2026-11-10";
+const DAY="Wednesday, November 11, 2026", KEY="pc-2026-11-11";
 const TASKS=[
-"Larry Pinette: follow up and get the OF65 Life Amendment + audit page signed (due Nov 22). Mandy uploads.",
-"Mike Dunn (Foresters PlanRight 9909207): get draft day (1-28) and ADR amount or remove rider. Also check AHL questionnaire with Mandy.",
-"Kathy Trujillo (Foresters SMART UL): get banking (voided check), finish beneficiary + e-sign. Drafts on the 28th.",
-"Christine Butler: PlanRight cancelled for missing signature. New signed app or write CICA.",
-"Barbara Green (MOO Living Promise): call and verify her info so it matches the app.",
+"8:00 Rafael Quintana and 10:00 Katherine Wilkerson consultations (booked in Lead Supply). Prep both now.",
+"Call the overnight Meta leads: Marvalette Bradley (NC), Artist Tribble (TX), wanda Woldridge (AL). Then yesterday's Joyce Rosecrans, Nanci Weeks, Dan Wilson, Bob Jara.",
+"Bruce Conner and Sherelle Dubose are both booked at 4:00 PM. Move one of them.",
 "Winston Samuels (Ethos, approved): finalize payment and close it out.",
-"Charlene Nichols: get FULL med list, then place graded/GI (Transamerica FE Express Easy, MOO Living Promise graded, CICA, Ethos GI, Corebridge last).",
-"Mary Bell: Foresters declined. Get coverage amount, rewrite Royal Neighbors or CICA first.",
+"Kathy Trujillo (Foresters SMART UL): get banking (voided check), finish beneficiary + e-sign. Drafts on the 28th.",
+"Mike Dunn (Foresters PlanRight 9909207): get draft day (1-28) and ADR amount or remove rider. Also check AHL questionnaire with Mandy.",
+"Larry Pinette: get the OF65 Life Amendment + audit page signed (due Nov 22). Mandy uploads.",
+"Barbara Green (MOO Living Promise): compare last night's call extract email to the app and fix anything that doesn't match.",
 "Ray Pfountz: MOO Living Promise e-sign failed. Resubmit, check build, confirm banking.",
-"Walter Sultan: rewrite with a carrier other than Corebridge (already has a Corebridge GIWL).",
-"Gilbert Rosalez: AHL declined. Get decline reason + confirm real age, then Corebridge GI or age-fit FE.",
+"Walter Sultan: CICA Superior Choice rewrite. Ask the knockout questions in the rundown email, then run Level vs Guaranteed.",
+"Christine Butler: PlanRight cancelled for missing signature. New signed app or write CICA (portal is set up now).",
+"Mary Bell: Foresters declined. Get coverage amount, rewrite Royal Neighbors or CICA.",
+"Charlene Nichols: get FULL med list, then place graded/GI. Gilbert Rosalez: get AHL decline reason + real age.",
 "Banking: Zelma Lewis and Judy Maki.",
-"12:00 Lynette Parra and 5:00 PM Kyna Glasco-Travelstead appointments (Chesca set). Prep both before lunch.",
 "Dial Facebook and mailer leads."
 ];
 /* MY DAY: [start "HH:MM" 24h, end, title] — America/Denver, from Google Calendar */
-const CAL_DATE="2026-11-10";
-const CALENDAR=[["06:30", "06:50", "Connect with God"], ["06:50", "07:00", "Silence + plan most important task"], ["07:00", "08:00", "Workout"], ["08:30", "08:40", "PNCL morning production kickoff"], ["09:00", "09:15", "Issue Paid Huddle (with Mandy)"], ["12:00", "12:30", "Lynette Parra - Insurance consultation"], ["12:30", "13:30", "Lunch"], ["13:30", "14:30", "Policy follow-up"], ["17:00", "17:30", "Kyna Glasco-Travelstead - Insurance consultation"], ["21:30", "22:00", "Read 30 min"], ["22:00", "22:10", "Daily Excellence Scorecard + gratitude"], ["22:10", "22:30", "Wind down / lights out 10:30"]];
-const NOTES=["Full pending-policy game plan is in Apple Notes", "Check before Submit: draft day, banking, signatures, rider amounts, full med list"];
+const CAL_DATE="2026-11-11";
+const CALENDAR=[["06:30", "06:50", "Connect with God"], ["06:50", "07:00", "Silence + plan most important task"], ["08:00", "08:30", "Rafael Quintana - Insurance consultation"], ["08:30", "08:40", "PNCL morning production kickoff"], ["09:00", "09:15", "Issue Paid Huddle (with Mandy)"], ["10:00", "10:30", "Katherine Wilkerson - Insurance consultation"], ["12:30", "13:30", "Lunch"], ["12:30", "13:30", "Workout"], ["13:30", "14:30", "Policy follow-up"], ["16:00", "16:30", "Bruce Conner - Insurance consultation"], ["16:00", "16:30", "Sherelle Dubose - Insurance consultation"], ["21:30", "22:00", "Read 30 min"], ["22:00", "22:10", "Daily Excellence Scorecard + gratitude"], ["22:10", "22:30", "Wind down / lights out 10:30"]];
+const NOTES=["Two appointments overlap at 4:00 PM (Bruce Conner + Sherelle Dubose)", "CICA welcome email came yesterday. Walter's CICA rewrite board is in your inbox", "Check before Submit: draft day, banking, signatures, rider amounts, full med list"];
 const LINKS=[["Foresters","https://www.foresters.com/"],["Mutual of Omaha (SPA)","https://producer.mutualofomaha.com/"],["Transamerica","https://secure.transamerica.com"],["Ethos","https://agents.ethoslife.com/"],["Kansas City Life","https://www.kclife.com/"],["Lead Supply","https://app.gohighlevel.com"],["Google Calendar","https://calendar.google.com"]];
 /* ===== end edit block ===== */
 </script>
