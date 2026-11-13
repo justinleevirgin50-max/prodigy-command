@@ -22,28 +22,28 @@ textarea{width:100%;min-height:90px;background:var(--bg);color:var(--t);border:1
 </style></head><body>
 <script>
 /* ===== EDIT DAILY: date, tasks, notifications ===== */
-const DAY="Thursday, November 12, 2026", KEY="pc-2026-11-12";
+const DAY="Friday, November 13, 2026", KEY="pc-2026-11-13";
 const TASKS=[
-"Call the new Meta leads: Joel Roberts (OK) from overnight, then last night's Travis Honeycutt (UT), Rosa Smith (AL), Michelle Marx (MO), Yancey Sparks (TX).",
-"Then call yesterday evening's leads: christina elliott (OK), Connie Waters (IA), Tina Hively (AL), Marcia Smith (AL).",
-"Prep today's consultations: 10:00 Katherine Wilkerson, 2:00 Nathan Choiniere, 2:30 Alma Craig, 3:00 Rosa Ramon.",
-"3:30 Zelma Jarvis callback: collect banking.",
-"Winston Samuels (Ethos, approved): finalize payment and close it out.",
+"Lee Leal: last night's email to him attached ProdigyLife_Batch1_Final_TrainingLayout_v4.pdf, not his policy. Send the right policy draft today.",
+"Prep the 9:00 Tina Hively consultation (she's one of Wednesday's Meta leads).",
+"Call yesterday's new Meta leads: Gary Broyles (NC), Bradley Mies (MN), Lillie Hardin (TX), Dan Fuchs (ND), Mark Segrest (TX), Suzi Fallon (TX).",
+"Michael Lingo (Ethos): underwriting sent him an online interview form. Call him and get it completed.",
+"Close out the money: Zelma Jarvis banking, and Winston Samuels (Ethos, approved) payment.",
 "Kathy Trujillo (Foresters SMART UL): get banking (voided check), finish beneficiary + e-sign. Drafts on the 28th.",
-"Mike Dunn (Foresters PlanRight 9909207): get draft day (1-28) and ADR amount or remove rider. Also check AHL questionnaire with Mandy.",
-"Larry Pinette: get the OF65 Life Amendment + audit page signed (due Nov 22). Mandy uploads.",
-"Barbara Green (MOO Living Promise): compare the call extract email to the app and fix anything that doesn't match.",
+"Mike Dunn (Foresters PlanRight 9909207): get draft day (1-28) and ADR amount or remove rider. Check AHL questionnaire with Mandy.",
 "Ray Pfountz: MOO Living Promise e-sign failed. Resubmit, check build, confirm banking.",
-"Walter Sultan: CICA Superior Choice rewrite. Ask the knockout questions in the rundown email, then run Level vs Guaranteed.",
-"Christine Butler: PlanRight cancelled for missing signature. New signed app or write CICA.",
-"Mary Bell: Foresters declined. Get coverage amount, rewrite Royal Neighbors or CICA.",
-"Charlene Nichols: get FULL med list, then place graded/GI. Gilbert Rosalez: get AHL decline reason + real age.",
-"Banking: Judy Maki. Then dial Facebook and mailer leads."
+"Prep the 12:00 Stephen Lower consultation.",
+"Log outcomes and next steps from yesterday's consults: Katherine Wilkerson, Nathan Choiniere, Alma Craig, Rosa Ramon.",
+"Barbara Green (MOO Living Promise): compare the call extract email to the app and fix anything that doesn't match.",
+"Larry Pinette: get the OF65 Life Amendment + audit page signed (due Nov 22). Mandy uploads.",
+"Rewrites: Walter Sultan (CICA knockout questions, then Level vs Guaranteed) and Christine Butler (new signed app or write CICA).",
+"Mary Bell: get coverage amount, rewrite Royal Neighbors or CICA. Charlene Nichols: FULL med list. Gilbert Rosalez: AHL decline reason + real age.",
+"Banking: Judy Maki. Then retry Wednesday's unreached leads (Joel Roberts, Travis Honeycutt, Rosa Smith, Michelle Marx, Yancey Sparks, Christina Elliott, Connie Waters, Marcia Smith)."
 ];
 /* MY DAY: [start "HH:MM" 24h, end, title] — America/Denver, from Google Calendar */
-const CAL_DATE="2026-11-12";
-const CALENDAR=[["06:30", "06:50", "Connect with God"], ["06:50", "07:00", "Silence + plan most important task"], ["08:30", "08:40", "PNCL morning production kickoff"], ["09:00", "09:15", "Issue Paid Huddle (with Mandy)"], ["10:00", "10:30", "Katherine Wilkerson - Insurance consultation"], ["12:30", "13:30", "Lunch"], ["12:30", "13:30", "Workout"], ["13:30", "14:30", "Policy follow-up"], ["14:00", "14:30", "Nathan Choiniere - Insurance consultation"], ["14:30", "15:00", "Alma Craig - Insurance consultation"], ["15:00", "15:30", "Rosa Ramon - Insurance consultation"], ["15:30", "16:00", "Zelma Jarvis - banking callback"], ["21:30", "22:00", "Read 30 min"], ["22:00", "22:10", "Daily Excellence Scorecard + gratitude"], ["22:10", "22:30", "Wind down / lights out 10:30"]];
-const NOTES=["Thursday is a PNCL day; kids are after work", "Nathan Choiniere's 2:00 consult overlaps your 1:30-2:30 Policy follow-up block", "Check before Submit: draft day, banking, signatures, rider amounts, full med list"];
+const CAL_DATE="2026-11-13";
+const CALENDAR=[["06:30", "06:50", "Connect with God"], ["06:50", "07:00", "Silence + plan most important task"], ["07:00", "08:00", "Workout"], ["08:30", "08:40", "PNCL morning production kickoff"], ["09:00", "09:15", "Issue Paid Huddle (with Mandy)"], ["09:00", "09:30", "Tina Hively - Insurance consultation"], ["12:00", "12:30", "Stephen Lower - Insurance consultation"], ["12:30", "13:30", "Lunch"], ["13:30", "14:30", "Policy follow-up"], ["21:30", "22:00", "Read 30 min"], ["22:00", "22:10", "Daily Excellence Scorecard + gratitude"], ["22:10", "22:30", "Wind down / lights out 10:30"]];
+const NOTES=["Issue Paid Huddle with Mandy at 9:00 overlaps Tina Hively's 9:00 consult", "Ethos: Douglas Cooke's submission was received; Trinity Lawrence's EHR was requested, no action needed", "Check before Submit: draft day, banking, signatures, rider amounts, full med list"];
 const LINKS=[["Foresters","https://www.foresters.com/"],["Mutual of Omaha (SPA)","https://producer.mutualofomaha.com/"],["Transamerica","https://secure.transamerica.com"],["Ethos","https://agents.ethoslife.com/"],["Kansas City Life","https://www.kclife.com/"],["Lead Supply","https://app.gohighlevel.com"],["Google Calendar","https://calendar.google.com"]];
 /* ===== end edit block ===== */
 </script>
@@ -53,7 +53,7 @@ const LINKS=[["Foresters","https://www.foresters.com/"],["Mutual of Omaha (SPA)"
 <div id="focus"></div>
 <details id="nextd" open><summary>Up next</summary><div class="in" id="next"></div></details>
 <details><summary>All tasks</summary><div class="in" id="all"></div></details>
-<details><summary>My day</summary><div class="in"><div id="cal"></div><a class="go" style="background:var(--l);color:var(--t)" href="https://calendar.google.com/calendar/u/0/r/day/2026/10/28" target="_blank" rel="noopener">Open Google Calendar ↗</a></div></details>
+<details><summary>My day</summary><div class="in"><div id="cal"></div><a class="go" style="background:var(--l);color:var(--t)" href="https://calendar.google.com/calendar/u/0/r/day/2026/11/13" target="_blank" rel="noopener">Open Google Calendar ↗</a></div></details>
 <details><summary>Notes</summary><div class="in" id="notes"></div></details>
 <details><summary>Quick links</summary><div class="in"><div class="links" id="links"></div></div></details>
 <details id="talk"><summary>Talk to George</summary><div class="in">
