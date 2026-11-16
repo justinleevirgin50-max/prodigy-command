@@ -22,26 +22,28 @@ textarea{width:100%;min-height:90px;background:var(--bg);color:var(--t);border:1
 </style></head><body>
 <script>
 /* ===== EDIT DAILY: date, tasks, notifications ===== */
-const DAY="Sunday, November 15, 2026", KEY="pc-2026-11-15-v2";
+const DAY="Monday, November 16, 2026", KEY="pc-2026-11-16";
 const TASKS=[
-"Check your calendar and set notifications for tonight's Weekly reset at 7:00 PM, and Monday's kickoff at 8:30, Issue Paid Huddle at 9:00, Tina Hively callback at 9:25, Policy follow-up at 1:30, and Dan Fuchs consult at 3:00.",
-"THE MOST IMPORTANT THING: check every account's status, write down every action item, and get each one to issued paid.",
+"Check your calendar and set reminders for today: kickoff 8:30, Issue Paid Huddle 9:00, Tina Hively callback 9:25, Policy follow-up 1:30, and Dan Fuchs consult 3:00.",
+"THE MOST IMPORTANT THING TODAY: check every account's status and find every action item. Goal: every account issued paid. 10 accounts need action below.",
 "Larry Pinette (Foresters): get the OF65 life amendment signed and submitted by November 22, or the issued certificate may be cancelled.",
-"Winston Samuels (Ethos/TruStage): call him and get payment completed; he was approved October 13 and payment was still pending on October 14.",
-"Krissa Keith (Ethos/TruStage): check the portal and confirm whether her first premium posted; the policy was ready to issue October 1 once payment was made.",
-"Douglas Cooke (Ethos/TruStage): check the portal and confirm the November 12 payment posted and the policy is Premium Paying.",
 "Mike Dunn (Foresters): get the OF65 life amendment signed and in by November 27, or the application may be closed.",
-"Lee Leal (Transamerica): make his call Monday's first call and correct the application answers that say he has not had surgery.",
-"Barbara Green (Mutual of Omaha): check SPA for the November 5 e-app and clear any outstanding requirements.",
+"Krissa Keith (Ethos/TruStage): check the portal and confirm her first premium posted; the policy was ready to issue October 1 once paid.",
+"Winston Samuels (Ethos/TruStage): call him and get payment completed; he was approved October 13 and payment was still pending.",
 "Kathy Trujillo: follow up on the policy draft sent October 22 and get the next step done toward issued paid.",
-"Trinity Lawrence (Ethos): check whether the EHR requested Friday has arrived, and whether the earlier APS is still outstanding.",
-"Track your metrics and key indicators, and check your Meta campaign results and ad spend.",
-"Monday follow-up calls: Tina Hively at 9:25, Dan Fuchs consult at 3:00, and the new Meta leads Na'Ilah Samad, Sandra Williams, and Mark Bishop."
+"Barbara Green (Mutual of Omaha): check SPA for the November 5 e-app and clear any outstanding requirements.",
+"Douglas Cooke (Ethos/TruStage): check the portal and confirm the November 12 payment posted and the policy is Premium Paying.",
+"Lee Leal (Transamerica): call him first today and correct the application answers that say he has not had surgery.",
+"Trinity Lawrence (Ethos): check whether the requested EHR has arrived, and whether the earlier APS is still outstanding.",
+"Michael Lingo (Ethos): Ethos sent him a new online interview form last night; get him to complete it so underwriting can finish.",
+"Track your metrics and key indicators: log today's dials, contacts, appointments, apps, and issued paid, and check Meta campaign results and ad spend.",
+"Call this weekend's new Meta leads: Erik Opatz, Diana Leming, Dorothy Sheehan, Ray Stephens, Mark Bishop, Sandra Williams, and Na'Ilah Samad.",
+"Prep for Dan Fuchs's 3:00 consultation and Tina Hively's 9:25 callback."
 ];
 /* MY DAY: [start "HH:MM" 24h, end, title] — America/Denver, from Google Calendar */
-const CAL_DATE="2026-11-15";
-const CALENDAR=[["19:00", "19:30", "Weekly reset"], ["21:30", "22:00", "Read 30 min"], ["22:00", "22:10", "Daily Excellence Scorecard + gratitude"], ["22:10", "22:30", "Wind down / lights out 10:30"], ["06:30", "06:50", "Mon: Connect with God"], ["06:50", "07:00", "Mon: Silence + plan most important task"], ["07:00", "08:00", "Mon: Workout"], ["08:30", "08:40", "Mon: PNCL morning production kickoff"], ["09:00", "09:15", "Mon: Issue Paid Huddle"], ["09:25", "09:55", "Mon: Callback — Tina Hively"], ["12:30", "13:30", "Mon: Lunch"], ["13:30", "14:30", "Mon: Policy follow-up"], ["15:00", "15:30", "Mon: Dan Fuchs - Insurance consultation"], ["21:30", "22:00", "Mon: Read 30 min"], ["22:00", "22:10", "Mon: Daily Excellence Scorecard + gratitude"], ["22:10", "22:30", "Mon: Wind down / lights out 10:30"]];
-const NOTES=["THE MOST IMPORTANT THING: get every account to issued paid; if one isn't, find the exact hold-up and get it done.", "Deadlines: Larry Pinette signatures due November 22; Mike Dunn amendment due November 27.", "Monday: Issue Paid Huddle at 9:00, Tina Hively at 9:25, Dan Fuchs at 3:00.", "Tonight: Weekly reset is at 7:00."];
+const CAL_DATE="2026-11-16";
+const CALENDAR=[["06:30", "06:50", "Connect with God"], ["06:50", "07:00", "Silence + plan most important task"], ["07:00", "08:00", "Workout"], ["08:30", "08:40", "PNCL morning production kickoff"], ["09:00", "09:15", "Issue Paid Huddle"], ["09:25", "09:55", "Callback — Tina Hively"], ["12:30", "13:30", "Lunch"], ["13:30", "14:30", "Policy follow-up"], ["15:00", "15:30", "Dan Fuchs - Insurance consultation"], ["21:30", "22:00", "Read 30 min"], ["22:00", "22:10", "Daily Excellence Scorecard + gratitude"], ["22:10", "22:30", "Wind down / lights out 10:30"]];
+const NOTES=["Priority #1: get every account to issued paid.", "Deadlines: Larry Pinette amendment due November 22; Mike Dunn amendment due November 27.", "Today: Issue Paid Huddle 9:00, Tina Hively 9:25, Dan Fuchs 3:00."];
 const LINKS=[["Foresters","https://www.foresters.com/"],["Mutual of Omaha (SPA)","https://producer.mutualofomaha.com/"],["Transamerica","https://secure.transamerica.com"],["Ethos","https://agents.ethoslife.com/"],["Kansas City Life","https://www.kclife.com/"],["Lead Supply","https://app.gohighlevel.com"],["Google Calendar","https://calendar.google.com"]];
 /* ===== end edit block ===== */
 </script>
