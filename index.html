@@ -22,14 +22,14 @@ textarea{width:100%;min-height:90px;background:var(--bg);color:var(--t);border:1
 </style></head><body>
 <script>
 /* ===== EDIT DAILY: date, tasks, notifications ===== */
-const DAY="Wednesday, November 18, 2026", KEY="pc-2026-11-18";
+const DAY="Thursday, November 19, 2026", KEY="pc-2026-11-19";
 const TASKS=[
-"Check your calendar and note every appointment today so it gets a notification and reminder: Issue Paid Huddle 9:00, Jesse Watson 2:00, and Denise Budd 5:30.",
-"THE MOST IMPORTANT THING TODAY: check every single account's status and find any action items. Goal: every account issued paid. 11 accounts need action below.",
+"Check your calendar and note every appointment today so it gets a notification and reminder: Issue Paid Huddle 9:00, Janr Vanlandingham 9:00, Ken Johnson 2:00, Oscar Coulter 2:30, and DuWayne Voto 3:00.",
+"THE MOST IMPORTANT THING TODAY: check every single account's status and find any action items. Goal: every account issued paid. 12 accounts need action below.",
 "Larry Pinette (Foresters): get the OF65 life amendment signed and submitted by November 22, or the issued certificate may be cancelled.",
 "Mike Dunn (Foresters): get the OF65 life amendment signed and in by November 27, or the application may be closed.",
-"Barbara Green (Ethos/TruStage): her policy is ready to issue once the first premium is paid; confirm that payment went through.",
-"Michael Lingo (Ethos/Ameritas): call him today about his approval at an adjusted rate and help him activate the policy.",
+"Barbara Green (Ethos/TruStage): her first premium payment failed on November 18; call her and get the payment fixed so the policy can issue.",
+"Michael Lingo (Ethos/Ameritas): call him and get his first payment made; he was approved at an adjusted rate and the application will close if payment isn't received soon.",
 "Krissa Keith (Ethos/TruStage): check the portal and confirm her first premium posted; the policy was ready to issue October 1 once paid.",
 "Winston Samuels (Ethos/TruStage): call him and get payment completed; he was approved October 13 and payment was still pending.",
 "Kathy Trujillo: follow up on the policy draft sent October 22 and get the next step done toward issued paid.",
@@ -37,14 +37,14 @@ const TASKS=[
 "Douglas Cooke (Ethos/TruStage): check the portal and confirm the November 12 payment posted and the policy is Premium Paying.",
 "Lee Leal (Transamerica): call him and correct the application answers that say he has not had surgery.",
 "Raymond Pfountz (Ethos): call him and help him finish and submit his application; his disclosures are signed and Ethos is still waiting.",
+"Altraviez Haley (Ethos): she signed her disclosures on November 18; continue and finish her application.",
 "Track your metrics and key indicators: log today's dials, contacts, appointments, apps, and issued paid, and check your Meta campaign results and ad spend.",
-"Call yesterday's new Meta leads: Cathryn Wood, Tamatha Bell, Louise Bammon, Ken Johnson, William Peaden, John Glidden, Charles Sackett, Dewayne Bruce, Albert Ford, and Rita Wood.",
-"Follow up on earlier Meta leads not yet booked: Megan Nelson, Joseph Schachnuk, Eddie Deming, Adriana Martinez, Earl Fowler, Linda Alexander, Diana Leming, Dorothy Sheehan, Mark Bishop, Sandra Williams, and Na'Ilah Samad."
+"Call yesterday's new Meta leads (Sharma Goodson, Cindy Weidner, and Theresa Dunlap), then work your unbooked Meta leads from earlier this week."
 ];
 /* MY DAY: [start "HH:MM" 24h, end, title] — America/Denver, from Google Calendar */
-const CAL_DATE="2026-11-18";
-const CALENDAR=[["06:30", "06:50", "Connect with God"], ["06:50", "07:00", "Silence + plan most important task"], ["08:30", "08:40", "PNCL morning production kickoff"], ["09:00", "09:15", "Issue Paid Huddle"], ["12:30", "13:30", "Lunch"], ["12:30", "13:30", "Workout"], ["13:30", "14:30", "Policy follow-up"], ["14:00", "14:30", "Jesse Watson - Insurance consultation"], ["17:30", "18:00", "Denise Budd - Insurance consultation"], ["21:30", "22:00", "Read 30 min"], ["22:00", "22:10", "Daily Excellence Scorecard + gratitude"], ["22:10", "22:30", "Wind down / lights out 10:30"]];
-const NOTES=["Priority #1: get every account to issued paid.", "Deadlines: Larry Pinette amendment due November 22; Mike Dunn amendment due November 27.", "New: Michael Lingo (Ethos/Ameritas) was approved November 17 at an adjusted rate; call him to activate.", "Jesse Watson at 2:00 overlaps your 1:30 Policy follow-up block."];
+const CAL_DATE="2026-11-19";
+const CALENDAR=[["06:30", "06:50", "Connect with God"], ["06:50", "07:00", "Silence + plan most important task"], ["08:30", "08:40", "PNCL morning production kickoff"], ["09:00", "09:15", "Issue Paid Huddle"], ["09:00", "09:30", "Janr Vanlandingham - Insurance consultation"], ["12:30", "13:30", "Lunch"], ["12:30", "13:30", "Workout"], ["13:30", "14:30", "Policy follow-up"], ["14:00", "14:30", "Ken Johnson - Insurance consultation"], ["14:30", "15:00", "Oscar Coulter - Insurance consultation"], ["15:00", "15:30", "DuWayne Voto - Insurance consultation"], ["21:30", "22:00", "Read 30 min"], ["22:00", "22:10", "Daily Excellence Scorecard + gratitude"], ["22:10", "22:30", "Wind down / lights out 10:30"]];
+const NOTES=["Priority #1: get every account to issued paid.", "Deadlines: Larry Pinette amendment due November 22; Mike Dunn amendment due November 27.", "New: Barbara Green's first payment failed November 18; call her today.", "Janr Vanlandingham at 9:00 overlaps the Issue Paid Huddle, and Ken Johnson at 2:00 overlaps your Policy follow-up block."];
 const LINKS=[["Foresters","https://www.foresters.com/"],["Mutual of Omaha (SPA)","https://producer.mutualofomaha.com/"],["Transamerica","https://secure.transamerica.com"],["Ethos","https://agents.ethoslife.com/"],["Kansas City Life","https://www.kclife.com/"],["Lead Supply","https://app.gohighlevel.com"],["Google Calendar","https://calendar.google.com"]];
 /* ===== end edit block ===== */
 </script>
